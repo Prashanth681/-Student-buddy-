@@ -59,4 +59,4 @@ def study_hours():
     return render_template('study_hours.html', study_hours=data['study_hours'], total_hours=total_hours)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host=0.0.0.0, port=5000, debug=True)

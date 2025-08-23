@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Study Hours - Student Buddy{% endblock %}
+
+{% block content %}
+    <h2>Study Hours</h2>
+    {% if study_hours %}
+        <p>Total study hours: <strong>{{ total_hours }}</strong></p>
+        <ul>
+            {% for hours in study_hours %}
+                <li>{{ hours }} hours</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No study hours logged yet.</p>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('study_hours') }}">
+        <input type="number" step="0.1" name="hours" placeholder="Enter study hours" required>
+        <button type="submit">Log Hours</button>
+    </form>
+{% endblock %}

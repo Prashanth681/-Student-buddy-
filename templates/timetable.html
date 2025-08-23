@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Timetable - Student Buddy{% endblock %}
+
+{% block content %}
+    <h2>My Timetable</h2>
+    {% if timetable %}
+        <ul>
+            {% for day, subjects in timetable.items() %}
+                <li><strong>{{ day }}:</strong> {{ subjects|join(', ') }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No timetable entries yet.</p>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('timetable') }}">
+        <input type="text" name="day" placeholder="Enter day (e.g., Monday)" required>
+        <input type="text" name="subject" placeholder="Enter subject" required>
+        <button type="submit">Add to Timetable</button>
+    </form>
+{% endblock %}

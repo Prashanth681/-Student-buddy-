@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Notes - Student Buddy{% endblock %}
+
+{% block content %}
+    <h2>My Notes</h2>
+    <ul>
+        {% for note in notes %}
+            <li>{{ note }}</li>
+        {% else %}
+            <li>No notes yet.</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post" action="{{ url_for('notes') }}">
+        <textarea name="note" placeholder="Enter a new note" required></textarea>
+        <button type="submit">Add Note</button>
+    </form>
+{% endblock %}

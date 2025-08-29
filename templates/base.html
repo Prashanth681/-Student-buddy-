@@ -7,15 +7,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('tasks') }}">Tasks</a>
-        <a href="{{ url_for('notes') }}">Notes</a>
-        <a href="{{ url_for('timetable') }}">Timetable</a>
-        <a href="{{ url_for('study_hours') }}">Study Hours</a>
-    </nav>
-    <div class="container">
+    <header>
+        <div class="container">
+            <h1>Student Buddy</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('tasks') }}">Tasks</a>
+                <a href="{{ url_for('notes') }}">Notes</a>
+                <a href="{{ url_for('timetable') }}">Timetable</a>
+                <a href="{{ url_for('study_hours') }}">Study Hours</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
         {% block content %}{% endblock %}
-    </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Student Buddy. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
